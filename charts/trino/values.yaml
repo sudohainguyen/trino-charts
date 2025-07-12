@@ -368,13 +368,24 @@ additionalExchangeManagerProperties: []
 #  - exchange.s3.aws-secret-key=your-secret-key
 # ```
 
-sessionProperties: ""
+sessionProperty: {}
 # [Session property config file](https://trino.io/docs/current/admin/session-property-managers.html)
 # is mounted to {{ .Values.server.config.path }}/session-property-config.json
 # @raw
-# Example:
+
+# Set the type property to either:
+# * `configmap`, and provide the session properties file contents in `sessionPropertiesConfig`,
+# * `properties`, and provide configuration properties in `properties`.
+# Properties example:
 # ```yaml
-# sessionProperties: |-
+# type: properties
+# properties: |
+#   session-property-config.configuration-manager=file
+#   session-property-manager.config-file=/etc/trino/session-property-config.json
+# Configmap Example:
+# ```yaml
+# type: configmap
+# sessionPropertiesConfig: |-
 #   [
 #     {
 #       "group": "global.*",
