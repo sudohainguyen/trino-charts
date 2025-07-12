@@ -346,28 +346,6 @@ sessionProperty:
       }
     ]
 
-sessionProperties: |-
-  [
-    {
-      "group": "global.admin",
-      "sessionProperties": {
-        "query_max_execution_time": "8h"
-      }
-    },
-    {
-      "group": "global.readonly",
-      "sessionProperties": {
-        "query_max_execution_time": "1h"
-      }
-    },
-    {
-      "group": "global.(finance_human_resources|general)",
-      "sessionProperties": {
-        "query_max_execution_time": "10m"
-      }
-    }
-  ]
-
 catalogs:
   tpch: |
     connector.name=tpch
